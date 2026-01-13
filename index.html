@@ -1,821 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5719500798461823"
+<head>    
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5719500798461823"
      crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Messenger App</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5719500798461823"
-     crossorigin="anonymous"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-messaging.js"></script>
-    
-    <style>
-        /* Reset and base styles */
-body {
-  margin: 0;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Mathematics Facts & Problems+ Share</title>
+
+<style>
+body{
+  margin:0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  color: white;
-  
+  color:#ffffff;
 }
 
-/* Header / Action bar */
-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  border-radius: 10px;
- 
+header{
+  text-align:center;
+  padding:25px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.5);
 }
 
-#menu {
-  cursor: pointer;
-  margin: 20px;
-}
-#menu div {
-  width: 25px;
-  height: 3px;
-  background: white;
-  margin: 4px 0;
+header h1{
+  font-size:2.5rem;
+  margin:0;
 }
 
-header h1 {
-  font-size: 1.2rem;
-  margin: 20px;
-  font-weight: bolder;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+nav{
+  text-align:center;
+  padding:15px;
 }
 
-/* Slide-in menu */
-#slider {
-  position: absolute;
-  top: 200px;
-  right: 20px;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  width: 80%;
-  padding: 20px;
-  transform: translateY(-200%);
-  transition: transform 0.4s ease;
-  z-index: 999;
+nav a{
+  color:#1e90ff;
+  margin:10px 15px;
+  text-decoration:none;
+  font-weight:bold;
 }
 
-#slider.active {
-  transform: translateY(0);
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:30px;
 }
 
-#slider .title h1 {
-  font-size: 1.6rem;
-  margin-bottom: 15px;
-  text-align: center;
+section{
+  margin-bottom:50px;
 }
 
-#slider .smenu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+h2{
+  border-left:6px solid #1e90ff;
+  padding-left:10px;
 }
 
-#slider .smenu h3 {
-  background: #333;
-  padding: 12px 25px;
-  border-radius: 6px;
-  cursor: pointer;
-  width: 90%;
-  text-align: center;
-  transition: background 0.3s ease;
-}
-#slider .smenu h3:hover {
-  background: #555;
+.problem{
+  background:rgba(0,0,0,0.35);
+  padding:20px;
+  border-radius:10px;
+  margin:20px 0;
+  box-shadow:0 2px 10px rgba(0,0,0,0.4);
 }
 
-#deleteAllBtn {
-  background-color: red !important;
-  color: white !important;
+footer{
+  text-align:center;
+  padding:20px;
+  opacity:0.8;
+  font-size:14px;
 }
-
-
-
-
-
-/* Messaging section */
-#messagingSenderId {
-  
-  padding: 25px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-}
-#usernamePrompt{
-  margin: 20px;
-  margin-top: 140px;
-}
-#usernamePrompt h4 {
-  font-size: 1.4rem;
-  text-align: center;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-input[type="text"] {
-  text-align: center;
-  padding: 12px;
-  border-radius: 6px;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  margin: 5px;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  color: #fff;
-}
-
-#messageInput{
-  width: 60%;
-  padding: 9px;
-  margin-top: 10px;
-  box-shadow: 10px 5px 10px rgba(0,0,0,0.5);
-}
-
-#fileAndImageInput{
-  visibility: hidden;
-}
-
-#add{
-  border: 2px solid white;
-   background: linear-gradient(to left, #0f2027, #203a43, #2c5364);
- margin: 2px;
- height: 31px;
- width: 30px;
- color: white;
- cursor: pointer;
- transition: background 0.3s ease;
- border: none;
- border-radius: 100px;
- font-weight: bold;
- padding: 3px;
- font-size: 20px;
- text-transform: uppercase;
-}
-
-#sendButton{
-  background: linear-gradient(to left, #000, #203a43, #2c5364);
-box-shadow: 5 15px 15px rgba(0, 0, 0, 0.5);
-  height: 35px;
-  width: 50px;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  padding: 3px;
-  font-size: 11px;
-  text-transform: uppercase;
-}
-.b,#imgsendButton,#filesendButton{
-  padding: 12px;
-  background-color: #1e90ff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-button:hover {
-  background-color: #187bcd;
-}
-
-/* Chat container */
-#chat-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-#messages {
- 
-  width: 100%;
-  max-height: 300px;
-   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  overflow-y: auto;
-  border-radius: 10px;
-  height: 300px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
-
-/* Scrollbar */
-#messages::-webkit-scrollbar {
-  width: 8px;
-}
-#messages::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
-}
-#messages::-webkit-scrollbar-track {
-  background: #222;
-}
-
-/* Messages */
-.message {
-  margin: 10px 0;
-  padding: 15px;
-  border-radius: 12px;
-  line-height: 1.4;
-  font-size: 15px;
-  max-width: 75%;
-  animation: fadeIn 0.4s ease-in;
-}
-
-.outgoing {
-  background-color: #2F335B;
-  margin-left: auto;
-  font-size: 13px;
-}
-
-.incoming {
-  background-color: #818BFA;
-  margin-right: auto;
-  font-size: 12px;
-}
-
-.username {
-  font-weight: bolder;
-  margin-bottom: 7px;
-  font-style: italic;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  padding: 5px;
-  border-radius: 20px;
-}
-
-.message-image {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  margin-top: 5px;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Desktop Layout */
-
-#loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.spinner {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #3498db;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 0.9s linear infinite;
-}
-
-@keyframes spin{
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-
-@media (min-width: 768px) {
-  #close {
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  
-  #messagingSenderId {
-    height: auto;
-  }
-
-  header h1 {
-    font-size: 3rem;
-    text-align: center;
-    margin: 22px;
-    width: 100%;
-  }
-
-  #usernamePrompt h4 {
-    font-size: 1.6rem;
-  }
-
-
-#menu {
-  display: none;
-}
-
-#slider{
-  position: relative;
-  top: 600px;
-  left: 80px;
-  
-}
-
-#slider h3{
-  font-size: 30px;
-}
-
-#usernamePrompt{
-  margin-left: 40px;
-  box-shadow: 5 15px 15px rgba(0, 0, 0, 0.5);
-  padding: 40px;
-  border-radius: 20px;
-  margin-top: 50px;
-  background: linear-gradient(to left, #0f2027, #203a43, #2c5364);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#usernameInput{
-  width: 680px;
-  font-size: 30px;
-  
-}
-
-#submitUsername{
-  font-size: 30px;
-}
-
-#messagingSenderId{
-  margin-top: 50px;
-  margin: 30px;
-}
-
-.outgoing {
-  font-size: 25px;
-}
-
-.incoming {
-  font-size: 30px;
-}
-
-.username {
-  font-size: 34px;
-}
-#messageInput{
-  width: 70%;
-  padding: 20px;
-  font-size: 30px;
-  margin-top: 30px;
-}
-#add,#sendButton{
-  width: 100px;
-  height: 70px;
-  font-size: 28px;
-}
-#add{
-  font-size: 40px;
-}
-
-#imgsendButton,#filesendButton{
-  width: 30%;
-  height: 60px;
-  margin-top: 40px;
-  font-size: 27px;
-  
-}
-}
-    </style>
+</style>
 </head>
+
 <body>
 
-  
-
-    <header id="head" class="actionbar">
-        <div id="menu">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <h1>Shared Me</h1>
-    </header>
-    
-    <section id="slider">
-        <div class="smenu">
-            <h3 id="exitButton">exit (from you account)</h3>
-            <h3 id="deleteAllBtn" style="background-color:red;color:white;">Delete All Messages & Files</h3>
-            
-        </div>
-    </section>
-    
-    
-     
-        
-        <section id="messagingSenderId">
-            
-            <div id="usernamePrompt" class="full-screen-dialog">
-                
-                <div class="input-group">
-                    <input type="text" id="usernameInput" placeholder="Only Username as you like" />
-                    <button  id="submitUsername" class="b">Submit</button>
-                </div>
-            </div>
-            
-             <div id="loader"  style="display: none;">
-                <div class="spinner"></div>
-.               </div>
-            <div id="chat-container" style="display: none;">
-               
-                <div id="messages"></div>
-               <input type="text" id="messageInput" placeholder="Enter you text...."><button id="sendButton">send</button><button id="add">+</button><br>
-               <input type="file" id="fileAndImageInput" multiple />
-             <button id="imgsendButton">Send Images</button>
-<button id="filesendButton">Send Files</button>
-            </div>
-        </section>
-    
-    
-   
+<header>
+  <h1>Advanced Mathematics Facts & Problems +Share with other</h1>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="chat.html">Messenger</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="privacy.html">Privacy</a>
+</nav>
+
+<div class="container">
+
+<section>
+<h2>Introduction</h2>
+<p>
+This website is dedicated to presenting <b>advanced mathematical facts and extremely challenging problems</b>
+for curious minds, mathematics enthusiasts, and students who enjoy deep thinking.
+</p>
+<p>
+The problems shown here are intentionally provided <b>without solutions</b>. The goal is not memorization,
+but logical reasoning, creativity, and intellectual exploration. Many of these problems are inspired by
+concepts from number theory, algebra, calculus, geometry, and mathematical logic.
+</p>
+<p>
+If you are preparing for high-level competitions, academic research, or simply love mathematical challenges,
+this platform is designed for you.
+</p>
+</section>
+
+<section>
+<h2>Important Mathematical Facts</h2>
+
+<p><b>• Prime Number Distribution:</b><br>
+There is no known simple formula that generates all prime numbers. The function π(x), which counts primes
+less than x, is approximately x / ln(x), but the exact distribution remains unpredictable.
+</p>
+
+<p><b>• Irrational Numbers:</b><br>
+Numbers like √2, π, and e cannot be expressed as a fraction of two integers. Their decimal expansions
+are infinite and non-repeating.
+</p>
+
+<p><b>• Non-Elementary Integrals:</b><br>
+Not all integrals have closed-form solutions. For example, ∫ e<sup>−x²</sup> dx cannot be expressed
+using elementary functions.
+</p>
+
+<p><b>• Gödel’s Incompleteness Theorem:</b><br>
+In any sufficiently powerful formal system, there exist true mathematical statements that cannot be proven
+within the system itself.
+</p>
+
+</section>
+
+<section>
+<h2>High-Level Mathematics Problems (No Solutions)</h2>
+<p><i>⚠️ These problems are provided without solutions to encourage independent thinking.</i></p>
+
+<div class="problem">
+<b>Problem 1 (Number Theory):</b><br>
+Prove or disprove that there exist infinitely many prime numbers p such that p² + 2 is also prime.
+</div>
+
+<div class="problem">
+<b>Problem 2 (Algebra):</b><br>
+Find all real values of x satisfying:
+<br>
+x<sup>x</sup> = 2<sup>x</sup>
+</div>
+
+<div class="problem">
+<b>Problem 3 (Calculus):</b><br>
+Determine whether the series
+<br>
+∑ (n = 1 to ∞) [ (−1)<sup>n</sup> · ln(n) / n ]
+<br>
+is convergent or divergent.
+</div>
+
+<div class="problem">
+<b>Problem 4 (Geometry):</b><br>
+Is it possible to construct a triangle such that the lengths of its sides, medians, and altitudes are all integers?
+Justify your reasoning.
+</div>
+
+<div class="problem">
+<b>Problem 5 (Probability):</b><br>
+A fair coin is tossed infinitely many times. What is the probability that the sequence HTT appears before THT?
+</div>
+
+</section>
+
+</div>
+
+<footer>
+© 2026 Advanced Mathematics Challenges • Educational Purpose Only
+</footer>
 
-    <script>
-        
-        
-function showLoader() {
-  document.getElementById('loader').style.display = 'flex';
-}
-
-function hideLoader() {
-  document.getElementById('loader').style.display = 'none';
-}
-// Firebase configuration
-
-const firebaseConfig = {
-
-apiKey: "AIzaSyCYRLL5DpzEofieL4nDuRNNEDfBC10OJLY",
-
-authDomain: "message-43ca2.firebaseapp.com",
-
-databaseURL: "https://message-43ca2-default-rtdb.firebaseio.com",
-
-projectId: "message-43ca2",
-
-storageBucket: "message-43ca2.appspot.com",
-
-messagingSenderId: "1047719892648",
-
-appId: "1:1047719892648:web:945ae6f99b3b3156c9949d",
-
-measurementId: "G-0222BMJV7C"
-
-};
-
-// Initialize Firebase
-
-firebase.initializeApp(firebaseConfig);
-
-const database = firebase.database();
-
-const storage = firebase.storage();
-
-let userId = localStorage.getItem('username') || "";
-
-// Show username prompt
-
-function showUsernamePrompt() {
-
-document.getElementById('usernamePrompt').style.display = 'flex';
-
-document.getElementById('chat-container').style.display = 'none';
-
-}
-
-
-
-
-
-// Setup user presence
-
-function setupUserPresence() {
-
-const userRef = database.ref('users/' + userId);
-
-userRef.set(true);
-
-userRef.onDisconnect().remove();
-
-}
-
-// Send text message
-
-function sendMessage() {
-  const messageInput = document.getElementById('messageInput');
-  const text = messageInput.value.trim();
-
-  if (text === '') return;
-
-  showLoader();
-  const messageData = {
-    username: userId,
-    message: text,
-    timestamp: Date.now(),
-    type: 'text'
-  };
-
-  database.ref('messages/').push(messageData, (error) => {
-    hideLoader();
-    if (error) {
-      console.error("Message send failed:", error);
-    }
-  });
-
-  messageInput.value = '';
-}
-
-// Send image
-
-function sendImage() {
-  const imageInput = document.getElementById('fileAndImageInput');
-  const files = Array.from(imageInput.files);
-
-  if (files.length === 0) {
-    alert("Please select image(s).");
-    return;
-  }
-
-  files.forEach((file) => {
-    showLoader();
-    const storageRef = storage.ref(`images/${Date.now()}_${file.name}`);
-    const uploadTask = storageRef.put(file);
-
-    uploadTask.on('state_changed',
-      null,
-      (error) => {
-        hideLoader();
-        console.error("Image upload failed:", error);
-      },
-      () => {
-        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-          const messageData = {
-            username: userId,
-            message: downloadURL,
-            timestamp: Date.now(),
-            type: 'image'
-          };
-          database.ref('messages/').push(messageData);
-          hideLoader();
-        });
-      }
-    );
-  });
-
-  imageInput.value = ''; // Clear selection
-}
-
-function sendFile() {
-  const fileInput = document.getElementById('fileAndImageInput');
-  const files = Array.from(fileInput.files);
-
-  if (files.length === 0) {
-    alert("Please select file(s).");
-    return;
-  }
-
-  files.forEach((file) => {
-    showLoader();
-    const storageRef = storage.ref(`files/${Date.now()}_${file.name}`);
-    const uploadTask = storageRef.put(file);
-
-    uploadTask.on('state_changed',
-      null,
-      (error) => {
-        hideLoader();
-        console.error("File upload failed:", error);
-      },
-      () => {
-        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-          const messageData = {
-            username: userId,
-            message: downloadURL,
-            timestamp: Date.now(),
-            type: 'file',
-            fileName: file.name
-          };
-          database.ref('messages/').push(messageData);
-          hideLoader();
-        });
-      }
-    );
-  });
-
-  fileInput.value = '';
-}
-// Receive messages
-
-function receiveMessages() {
-
-database.ref('messages/').on('child_added', (snapshot) => {
-
-    const messageData = snapshot.val();
-
-    displayMessage(messageData);
-
-});
-
-}
-
-// Display message
-
-function displayMessage(data) {
-
-const messagesDiv = document.getElementById('messages');
-
-const messageElement = document.createElement('div');
-
-messageElement.classList.add('message');
-
-
-
-if (data.username === userId) {
-
-    messageElement.classList.add('outgoing');
-
-} else {
-
-    messageElement.classList.add('incoming');
-
-}
-
-
-
-// Check if the message is an image
-
-if (data.type === 'image') {
-
-    messageElement.innerHTML = `
-
-        <span class="username">${data.username}</span>
-
-        <a href="${data.message}" download>
-
-            <img src="${data.message}" alt="Image" class="message-image" />
-
-        </a>
-
-    `;
-
-} else if (data.type === 'file') {
-    messageElement.innerHTML = `
-        <span class="username">${data.username}</span>
-        <a href="${data.message}" download="${data.fileName}" class="file-download">
-            Download ${data.fileName}
-        </a>
-    `;
-}
-else {
-
-    messageElement.innerHTML = `
-
-        <span class="username">${data.username}</span>
-
-        <span>${data.message}</span>
-
-    `;
-
-}
-
-
-
-messagesDiv.appendChild(messageElement);
-
-messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-}
-
-// Submit username
-
-document.getElementById('submitUsername').addEventListener('click', () => {
-
-const usernameInput = document.getElementById('usernameInput').value.trim();
-
-if (usernameInput) {
-
-    userId = usernameInput;
-
-    localStorage.setItem('username', userId);
-
-    setupUserPresence();
-
-    document.getElementById('usernamePrompt').style.display = 'none';
-
-    document.getElementById('chat-container').style.display = 'block';
-
-    
-
-} else {
-
-    alert("Please enter a username.");
-
-}
-
-});
-
-// Event listeners
-
-document.getElementById('sendButton').addEventListener('click', sendMessage);
-
-document.getElementById('imgsendButton').addEventListener('click', sendImage);
-document.getElementById('filesendButton').addEventListener('click', sendFile);
-
-
-// Exit button functionality
-
-document.getElementById('exitButton').addEventListener('click', () => {
-
-document.getElementById('chat-container').style.display = 'none';
-
-document.getElementById('usernamePrompt').style.display = 'flex';
-
-localStorage.removeItem('username');
-
-userId = "";
-location.reload(true);
-
-});
-
-// Initial setup
-
-showUsernamePrompt();
-receiveMessages();
-
-document.getElementById('deleteAllBtn').addEventListener('click', () => {
-  
-    if (!confirm("Are you sure you want to delete all messages and files?")) return;
-
-    // Delete messages from database
-    database.ref('messages/').remove().then(() => {
-        alert("All messages deleted.");
-    }).catch((error) => {
-        console.error("Error deleting messages:", error);
-    });
-
-    // Delete files from Firebase Storage
-    const storageRef = storage.ref();
-    const folders = ['images', 'files'];
-
-    folders.forEach(folder => {
-        storageRef.child(folder).listAll().then((result) => {
-            result.items.forEach((itemRef) => {
-                itemRef.delete().catch((error) => {
-                    console.error("Error deleting file:", error);
-                });
-            });
-        }).catch((error) => {
-            console.error(`Error listing ${folder}:`, error);
-        });
-    });
-    location.reload(true);
-});
-
-// Navigation functionality
-
-
-document.getElementById("menu").addEventListener("click", function () {
-    const slider = document.getElementById("slider");
-    slider.classList.toggle("active");
-  });
-  
-
-document.getElementById("add").addEventListener("click", function () {
-    const fileandimage = document.getElementById("fileAndImageInput");
-    fileandimage.click();
-  });
-  
-  
-  
-        
-    </script>
-  
-  
 </body>
-</html>
-
+    </html>
